@@ -49,7 +49,7 @@ cd Dependancies
 if [ $toolframework -eq 1 ]
 then
 
-git clone https://github.com/ToolFramework/ToolFramework.git
+git clone https://github.com/ToolFramework/ToolFrameworkCore.git
 cd ToolFramework
 make clean
 make
