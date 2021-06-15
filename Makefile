@@ -20,24 +20,24 @@ main: src/main.cpp lib/libStore.so lib/libLogging.so lib/libToolChain.so | lib/l
 	@echo -e "\e[38;5;214m\n*************** Making " $@ "****************\e[0m"
 	g++ $(CXXFLAGS) src/main.cpp -o main -I include -L lib -lStore -lMyTools -lToolChain -lDataModel -lLogging  -lpthread $(DataModelInclude) $(MyToolsInclude) $(ZMQLib) 
 
-lib/libStore.so: $(Dependancies)/ToolFramework/src/Store/*
-	cd $(Dependancies)/ToolFramework && $(MAKE) lib/libStore.so
+lib/libStore.so: $(Dependancies)/ToolFrameworkCore/src/Store/*
+	cd $(Dependancies)/ToolFrameworkCore && $(MAKE) lib/libStore.so
 	@echo -e "\e[38;5;118m\n*************** Copying " $@ "****************\e[0m"
-	cp $(Dependancies)/ToolFramework/src/Store/*.h include/
-	cp $(Dependancies)/ToolFramework/lib/libStore.so lib/
+	cp $(Dependancies)/ToolFrameworkCore/src/Store/*.h include/
+	cp $(Dependancies)/ToolFrameworkCore/lib/libStore.so lib/
 
-include/Tool.h:  $(Dependancies)/ToolFramework/src/Tool/Tool.h
+include/Tool.h:  $(Dependancies)/ToolFrameworkCore/src/Tool/Tool.h
 	@echo -e "\e[38;5;118m\n*************** Copying " $@ "****************\e[0m"
-	cp $(Dependancies)/ToolFramework/src/Tool/Tool.h include/
+	cp $(Dependancies)/ToolFrameworkCore/src/Tool/Tool.h include/
 	cp UserTools/*.h include/
 	cp UserTools/*/*.h include/
 	cp DataModel/*.h include/
 
-lib/libToolChain.so: $(Dependancies)/ToolFramework/src/ToolChain/* | lib/libLogging.so lib/libStore.so lib/libMyTools.so lib/libLogging.so lib/libDataModel.so
+lib/libToolChain.so: $(Dependancies)/ToolFrameworkCore/src/ToolChain/* | lib/libLogging.so lib/libStore.so lib/libMyTools.so lib/libLogging.so lib/libDataModel.so
 	@echo -e "\e[38;5;226m\n*************** Making " $@ "****************\e[0m"
-	cp $(Dependancies)/ToolFramework/UserTools/Factory/*.h include/
-	cp $(Dependancies)/ToolFramework/src/ToolChain/*.h include/
-	g++ $(CXXFLAGS) -shared $(Dependancies)/ToolFramework/src/ToolChain/ToolChain.cpp -I include -lpthread -L lib -lStore -lDataModel -lLogging -lMyTools -o lib/libToolChain.so $(DataModelInclude) $(DataModelib) $(MyToolsInclude) $(MyToolsLib)
+	cp $(Dependancies)/ToolFrameworkCore/UserTools/Factory/*.h include/
+	cp $(Dependancies)/ToolFrameworkCore/src/ToolChain/*.h include/
+	g++ $(CXXFLAGS) -shared $(Dependancies)/ToolFrameworkCore/src/ToolChain/ToolChain.cpp -I include -lpthread -L lib -lStore -lDataModel -lLogging -lMyTools -o lib/libToolChain.so $(DataModelInclude) $(DataModelib) $(MyToolsInclude) $(MyToolsLib)
 
 
 clean: 
@@ -63,11 +63,11 @@ lib/libMyTools.so: UserTools/*/* UserTools/* lib/libStore.so include/Tool.h lib/
 	cp UserTools/*/*.h include/
 	g++ $(CXXFLAGS) -shared UserTools/*/*.o -I include -L lib -lStore -lDataModel -lLogging -o lib/libMyTools.so $(MyToolsInclude) $(DataModelInclude) $(MyToolsLib)
 
-lib/libLogging.so:  $(Dependancies)/ToolFramework/src/Logging/* | lib/libStore.so
-	cd $(Dependancies)/ToolFramework && $(MAKE) lib/libLogging.so
+lib/libLogging.so:  $(Dependancies)/ToolFrameworkCore/src/Logging/* | lib/libStore.so
+	cd $(Dependancies)/ToolFrameworkCore && $(MAKE) lib/libLogging.so
 	@echo -e "\e[38;5;118m\n*************** Copying " $@ "****************\e[0m"
-	cp $(Dependancies)/ToolFramework/src/Logging/Logging.h include/
-	cp $(Dependancies)/ToolFramework/lib/libLogging.so lib/
+	cp $(Dependancies)/ToolFrameworkCore/src/Logging/Logging.h include/
+	cp $(Dependancies)/ToolFrameworkCore/lib/libLogging.so lib/
 
 UserTools/%.o: UserTools/%.cpp lib/libStore.so include/Tool.h lib/libLogging.so lib/libDataModel.so
 	@echo -e "\e[38;5;214m\n*************** Making " $@ "****************\e[0m"

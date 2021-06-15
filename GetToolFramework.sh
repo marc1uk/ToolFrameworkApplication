@@ -50,7 +50,7 @@ if [ $toolframework -eq 1 ]
 then
 
 git clone https://github.com/ToolFramework/ToolFrameworkCore.git
-cd ToolFramework
+cd ToolFrameworkCore
 make clean
 make
 
