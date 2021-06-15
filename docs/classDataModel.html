@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>ToolDAQFramework: DataModel Class Reference</title>
+<title>ToolFrameworkApplication: DataModel Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">ToolDAQFramework
+   <div id="projectname">ToolFrameworkApplication
    </div>
   </td>
  </tr>
@@ -106,23 +106,10 @@ Public Attributes</h2></td></tr>
 Store&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataModel.html#a4baac5fe364a7a23762d70d2c2216486">vars</a></td></tr>
 <tr class="memdesc:a4baac5fe364a7a23762d70d2c2216486"><td class="mdescLeft">&#160;</td><td class="mdescRight">This Store can be used for any variables. It is an inefficent ascii based storage. <br/></td></tr>
 <tr class="separator:a4baac5fe364a7a23762d70d2c2216486"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a878e0d87285f0b3541a3e7116a5f00b6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a878e0d87285f0b3541a3e7116a5f00b6"></a>
-BoostStore&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataModel.html#a878e0d87285f0b3541a3e7116a5f00b6">CStore</a></td></tr>
-<tr class="memdesc:a878e0d87285f0b3541a3e7116a5f00b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is a more efficent binary BoostStore that can be used to store a dynamic set of inter Tool variables. <br/></td></tr>
-<tr class="separator:a878e0d87285f0b3541a3e7116a5f00b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad1ffc080c3b263bf3ee382a531321ad4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad1ffc080c3b263bf3ee382a531321ad4"></a>
-std::map&lt; std::string, <br class="typebreak"/>
-BoostStore * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataModel.html#ad1ffc080c3b263bf3ee382a531321ad4">Stores</a></td></tr>
-<tr class="memdesc:ad1ffc080c3b263bf3ee382a531321ad4"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is a map of named BooStore pointers which can be deffined to hold a nammed collection of any tipe of BoostStore. It is usefull to store data that needs subdividing into differnt stores. <br/></td></tr>
-<tr class="separator:ad1ffc080c3b263bf3ee382a531321ad4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa777da4c632e4659ee5b1447ad513458"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa777da4c632e4659ee5b1447ad513458"></a>
 Logging *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataModel.html#aa777da4c632e4659ee5b1447ad513458">Log</a></td></tr>
 <tr class="memdesc:aa777da4c632e4659ee5b1447ad513458"><td class="mdescLeft">&#160;</td><td class="mdescRight">Log class pointer for use in Tools, it can be used to send messages which can have multiple error levels and destination end points. <br/></td></tr>
 <tr class="separator:aa777da4c632e4659ee5b1447ad513458"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2c6dfd692e50f90e55338970ea7f8d61"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2c6dfd692e50f90e55338970ea7f8d61"></a>
-zmq::context_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDataModel.html#a2c6dfd692e50f90e55338970ea7f8d61">context</a></td></tr>
-<tr class="memdesc:a2c6dfd692e50f90e55338970ea7f8d61"><td class="mdescLeft">&#160;</td><td class="mdescRight">ZMQ contex used for producing zmq sockets for inter thread, process, or computer communication. <br/></td></tr>
-<tr class="separator:a2c6dfd692e50f90e55338970ea7f8d61"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This class Is a transient data model class for your Tools within the ToolChain. If Tools need to comunicate they pass all data objects through the data model. There fore inter tool data objects should be deffined in this class.</p>
