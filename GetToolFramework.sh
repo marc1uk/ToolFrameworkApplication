@@ -1,6 +1,5 @@
 #!/bin/bash
 
-init=1
 toolframework=1
 final=1
 
@@ -8,17 +7,12 @@ while [ ! $# -eq 0 ]
 do
     case "$1" in
 	--help | -h)
-	    helpmenu
+	    echo "This script should be run once after initially cloning the ToolFrameworkApplication repository. It retrieves the ToolFrameworkCore repository that provides the core framework on which your application will be built."
 	    exit
 	    ;;
 	
-	--no_init )
-	     echo "Installing Applicaiton without creating Dependancy Folder"
-	    init=0;
-	    ;;
-
 	--no_toolframework )
-	    echo "Installing dependancies without ToolFramework"
+	    echo "Installing dependencies without ToolFramework"
 	    toolframework=0
 	    ;;
 
@@ -38,13 +32,9 @@ do
     shift
 done
 
-if [ $init -eq 1 ]
-then
-    
-    mkdir Dependancies
-fi
+mkdir -p Dependencies
 
-cd Dependancies
+cd Dependencies
 
 if [ $toolframework -eq 1 ]
 then
